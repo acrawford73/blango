@@ -19,9 +19,11 @@ import dj_database_url
 
 
 class Dev(Configuration):
+    # SECURITY WARNING: don't run with debug turned on in production!
+    DEBUG = values.BooleanValue(True)
+
     # Build paths inside the project like this: BASE_DIR / 'subdir'.
     BASE_DIR = Path(__file__).resolve().parent.parent
-
 
     # Quick-start development settings - unsuitable for production
     # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -38,12 +40,7 @@ class Dev(Configuration):
     CSRF_COOKIE_SAMESITE = 'None'
     SESSION_COOKIE_SAMESITE = 'None'
 
-    # SECURITY WARNING: don't run with debug turned on in production!
-    DEBUG = values.BooleanValue(True)
-
-
     # Application definition
-
     INSTALLED_APPS = [
         'django.contrib.admin',
         'django.contrib.auth',
@@ -64,6 +61,13 @@ class Dev(Configuration):
         'django.contrib.auth.middleware.AuthenticationMiddleware',
         'django.contrib.messages.middleware.MessageMiddleware',
         #'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    ]
+
+    PASSWORD_HASHERS = [
+        'django.contrib.auth.hashers.Argon2PasswordHasher', # recommended (pip3 install django[argon2])
+        'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+        'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+        'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
     ]
 
     CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
