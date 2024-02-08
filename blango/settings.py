@@ -19,7 +19,6 @@ import dj_database_url
 
 
 class Dev(Configuration):
-    AUTH_USER_MODEL = "blango_auth.User"
     # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = values.BooleanValue(True)
 
@@ -44,6 +43,7 @@ class Dev(Configuration):
     # Application definition
     INSTALLED_APPS = [
 
+        'blango_auth', # prioritized over django admin
         'django.contrib.admin',
         'django.contrib.auth',
         'django.contrib.contenttypes',
@@ -52,7 +52,6 @@ class Dev(Configuration):
         'django.contrib.staticfiles',
         'crispy_forms',
         'crispy_bootstrap5',
-        'blango_auth',
         'blog',
         'debug_toolbar',
 
@@ -69,7 +68,15 @@ class Dev(Configuration):
         #'django.middleware.clickjacking.XFrameOptionsMiddleware',
     ]
 
+    # For Codio platform only, TBR
     INTERNAL_IPS = ["192.168.10.93"]
+
+    # Tests email registration in terminal
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+    
+    AUTH_USER_MODEL = "blango_auth.User"
+    ACCOUNT_ACTIVATION_DAYS = 7
+    REGISTRATION_OPEN = True
 
     PASSWORD_HASHERS = [
         'django.contrib.auth.hashers.Argon2PasswordHasher', # recommended (pip3 install django[argon2])
