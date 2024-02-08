@@ -19,6 +19,7 @@ import dj_database_url
 
 
 class Dev(Configuration):
+    AUTH_USER_MODEL = "blango_auth.User"
     # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = values.BooleanValue(True)
 
@@ -42,6 +43,7 @@ class Dev(Configuration):
 
     # Application definition
     INSTALLED_APPS = [
+
         'django.contrib.admin',
         'django.contrib.auth',
         'django.contrib.contenttypes',
@@ -50,8 +52,10 @@ class Dev(Configuration):
         'django.contrib.staticfiles',
         'crispy_forms',
         'crispy_bootstrap5',
+        'blango_auth',
         'blog',
         'debug_toolbar',
+
     ]
 
     MIDDLEWARE = [
