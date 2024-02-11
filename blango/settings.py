@@ -62,6 +62,7 @@ class Dev(Configuration):
         'crispy_bootstrap5',
         'blog',
         'debug_toolbar',
+        'rest_framework',
 
     ]
 
