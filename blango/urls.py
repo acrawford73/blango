@@ -40,7 +40,8 @@ urlpatterns = [
     # Django-allauth
     path("accounts/", include("allauth.urls")),
     # API
-    path("api/v1/", include("blog.api_urls")),
+    #path("api/v1/", include("blog.api_urls")),
+    path("api/v1/", include("blog.api.urls")),
 
 ]
 
