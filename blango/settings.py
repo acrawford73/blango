@@ -125,7 +125,6 @@ class Dev(Configuration):
 
     WSGI_APPLICATION = 'blango.wsgi.application'
 
-
     # Database
     # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -145,25 +144,15 @@ class Dev(Configuration):
     #     }
     # }
 
-
     # Password validation
     # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
     AUTH_PASSWORD_VALIDATORS = [
-        {
-            'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-        },
-        {
-            'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-        },
-        {
-            'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-        },
-        {
-            'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-        },
+        {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',},
+        {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',},
+        {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',},
+        {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',},
     ]
-
 
     # Internationalization
     # https://docs.djangoproject.com/en/3.2/topics/i18n/
@@ -184,6 +173,7 @@ class Dev(Configuration):
 
     DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+    # Logging
     LOGGING = {
         "version": 1,
         "disable_existing_loggers": False,
@@ -224,12 +214,19 @@ class Dev(Configuration):
     }
     
     # DRF
+    from rest_framework import authentication
+    from rest_framework import permissions
     REST_FRAMEWORK = {
         "DEFAULT_AUTHENTICATION_CLASSES": [
             "rest_framework.authentication.BasicAuthentication",
             "rest_framework.authentication.SessionAuthentication",
             "rest_framework.authentication.TokenAuthentication",
-        ]
+        ],
+        "DEFAULT_PERMISSION_CLASSES": [
+            # APIs only accessible with authentication
+            #"rest_framework.permissions.IsAuthenticated",
+            "rest_framework.permissions.IsAuthenticatedOrReadOnly"
+        ],
     }
 
 class Prod(Dev):
