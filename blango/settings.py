@@ -63,6 +63,7 @@ class Dev(Configuration):
         'blog',
         'debug_toolbar',
         'rest_framework',
+        'rest_framework.authtoken',
 
     ]
 
@@ -220,6 +221,15 @@ class Dev(Configuration):
             "handlers": ["console"],
             "level": "DEBUG",
         },
+    }
+    
+    # DRF
+    REST_FRAMEWORK = {
+        "DEFAULT_AUTHENTICATION_CLASSES": [
+            "rest_framework.authentication.BasicAuthentication",
+            "rest_framework.authentication.SessionAuthentication",
+            "rest_framework.authentication.TokenAuthentication",
+        ]
     }
 
 class Prod(Dev):
