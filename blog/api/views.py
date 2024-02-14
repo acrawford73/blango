@@ -1,14 +1,14 @@
 from rest_framework import generics
 
-from blog.api.serializers import PostSerializer, \
-  UserSerializer, PostDetailSerializer, TagSerializer
-from blog.models import Post
+from blog.models import Post, Tag
 from blango_auth.models import User
 from blog.api.permissions import AuthorModifyOrReadOnly, IsAdminUserForObject
+from blog.api.serializers import PostSerializer, \
+  UserSerializer, PostDetailSerializer, TagSerializer
 from rest_framework import generics, viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from blog.models import Post, Tag
+
 
 class PostViewSet(viewsets.ModelViewSet):
     permission_classes = [AuthorModifyOrReadOnly | IsAdminUserForObject]
