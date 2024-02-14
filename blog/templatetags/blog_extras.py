@@ -79,3 +79,4 @@ def recent_posts(post):
     posts = Post.objects.exclude(pk=post.pk)[:5]
     logger.debug("Loaded %d recent posts for post %d", len(posts), post.pk)
     return {"title": "Recent Posts", "posts": posts}
+

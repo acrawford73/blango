@@ -1,17 +1,22 @@
 {% extends "base.html" %}
+
 {% load blog_extras cache %}
+
 {% block content %}
+
 <h2>{{ post.title }}</h2>
 {% row %}
     {% col %}
         {% include "blog/post-byline.html" %}
     {% endcol %}
 {% endrow %}
+
 {% row %}
     {% col %}
         {{ post.content|safe }}
     {% endcol %}
 {% endrow %}
+
 {% if post.author.profile %}
     {% row %}
         {% col %}
@@ -20,7 +25,9 @@
         {% endcol %}
     {% endrow %}
 {% endif %}
+
 {% include "blog/post-comments.html" %}
+
 {% row %}
     {% col %}
         {% cache 3600 recent_posts post %}
@@ -28,4 +35,5 @@
         {% endcache %}
     {% endcol %}
 {% endrow %}
+
 {% endblock %}
