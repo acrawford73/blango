@@ -6,7 +6,9 @@ class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
         fields = "__all__"
-        
+
+# Auto-create related object
+# Creates tag if doesn't already exist        
 class TagField(serializers.SlugRelatedField):
     def to_internal_value(self, data):
         try:
