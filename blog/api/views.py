@@ -1,5 +1,3 @@
-from rest_framework import generics
-
 from blog.models import Post, Tag
 from blango_auth.models import User
 from blog.api.permissions import AuthorModifyOrReadOnly, IsAdminUserForObject
