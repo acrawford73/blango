@@ -88,6 +88,8 @@ class Dev(Configuration):
     AUTH_USER_MODEL = "blango_auth.User"
     ACCOUNT_ACTIVATION_DAYS = 7
     REGISTRATION_OPEN = True
+    LOGOUT_REDIRECT_URL = '/'
+    LOGIN_REDIRECT_URL = '/'
     
     # Django Allauth
     SITE_ID = 1
@@ -138,7 +140,7 @@ class Dev(Configuration):
         default=f"sqlite:///{BASE_DIR}/alternative_db.sqlite3",
       ),
     }  
-# DATABASES = {
+    # DATABASES = {
     #     'default': {
     #         'ENGINE': 'django.db.backends.sqlite3',
     #         'NAME': BASE_DIR / 'db.sqlite3',
