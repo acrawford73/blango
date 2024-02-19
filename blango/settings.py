@@ -217,6 +217,13 @@ class Dev(Configuration):
         },
     }
     
+    # SimpleJWT
+    from datetime import timedelta
+    SIMPLE_JWT = {
+        "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
+        "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
+    }
+
     # DRF
     from rest_framework import authentication
     from rest_framework import permissions
@@ -225,6 +232,8 @@ class Dev(Configuration):
             "rest_framework.authentication.BasicAuthentication",
             "rest_framework.authentication.SessionAuthentication",
             "rest_framework.authentication.TokenAuthentication",
+            # SimpleJWT
+            "rest_framework_simplejwt.authentication.JWTAuthentication",
         ],
         "DEFAULT_PERMISSION_CLASSES": [
             # APIs only accessible with authentication
