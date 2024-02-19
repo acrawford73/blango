@@ -44,7 +44,7 @@ urlpatterns = [
     # API
     #path("api/v1/", include("blog.api_urls")),
     path("api/v1/", include("blog.api.urls")),
-
+    path("post-table/", blog.views.post_table, name="blog-post-table"),
 ]
 
 
