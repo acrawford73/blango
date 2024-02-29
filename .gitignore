@@ -1,6 +1,9 @@
+bin/
+lib/
 *.pyc
 blango/__pycache__/*
 blog/__pycache__/*
 blog/migrations/__pycache__/
 blog/templatetags/__pycache__/
 .DS_Store
+pyvenv.cfg

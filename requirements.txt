@@ -20,8 +20,8 @@ django-debug-toolbar==3.2.2
 django-filter==2.4.0
 django-registration==3.2
 django-versatileimagefield==3.1
-djangorestframework==3.12.4
-djangorestframework-simplejwt==4.4.0
+djangorestframework
+djangorestframework-simplejwt
 drf-yasg==1.20.0
 idna==2.6
 inflection==0.5.1
@@ -42,10 +42,9 @@ prompt-toolkit==1.0.15
 pycparser==2.20
 pycrypto==2.6.1
 Pygments==2.2.0
-PyGObject==3.26.1
-PyJWT==1.7.1
+#PyJWT==1.7.1
 pyparsing==2.4.7
-python-apt==1.6.5+ubuntu0.3
+#python-apt==1.6.5+ubuntu0.3
 python-magic==0.4.27
 python3-openid==3.2.0
 pytz==2021.1
@@ -59,7 +58,7 @@ SecretStorage==2.3.1
 simplegeneric==0.8.1
 six==1.16.0
 sqlparse==0.4.1
-ssh-import-id==5.7
+#ssh-import-id==5.7
 traitlets==4.3.2
 typing-extensions==3.10.0.1
 uritemplate==3.0.1
